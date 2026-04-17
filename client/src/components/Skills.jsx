@@ -5,19 +5,19 @@ import './Skills.css';
 const SKILL_GROUPS = [
   {
     category: 'Languages',
-    skills: ['Python', 'Rust', 'TypeScript', 'PHP', 'JavaScript', 'GDScript'],
+    skills: ['Python', 'Rust', 'TypeScript', 'JavaScript','PHP', 'R'],
   },
   {
     category: 'AI & ML',
-    skills: ['PyTorch', 'Ollama', 'YOLOv8', 'InsightFace', 'LSTM', 'Transformers'],
+    skills: ['PyTorch','Tensorflow', 'Ollama', 'YOLOv8', 'InsightFace', 'LSTM', 'Transformers'],
   },
   {
     category: 'Web & Backend',
-    skills: ['React', 'Node.js', 'Express', 'WordPress', 'WooCommerce', 'REST APIs'],
+    skills: ['React', 'Node.js', 'Express', 'REST APIs', 'WordPress', 'WooCommerce','Shopify'],
   },
   {
     category: 'Tools & Infra',
-    skills: ['Docker', 'PostgreSQL', 'Redis', 'GitHub Actions', 'GCP Vertex AI', 'Git'],
+    skills: ['Docker', 'PostgreSQL','SQLite', 'Redis', 'Traefik', 'GitHub Actions', 'GCP Vertex AI', 'Git'],
   },
 ];
 
