@@ -147,44 +147,17 @@ app.get('/api/projects', (req, res) => {
 });
 
 app.get('/api/posts', (req, res) => {
-  const posts = [
-    {
-      id: 1,
-      slug: 'building-local-llm-tools',
-      title: 'Building Privacy-First AI Tools with Local LLMs',
-      excerpt: 'Why I stopped sending my data to the cloud and started running models on my own hardware — and how CVagent came out of that experiment.',
-      date: '2025-03-12',
-      readTime: '6 min',
-      tags: ['AI', 'Privacy', 'Ollama', 'Python'],
-    },
-    {
-      id: 2,
-      slug: 'lstm-transformer-stocks',
-      title: 'Combining LSTMs and Transformers for Stock Forecasting',
-      excerpt: 'A walkthrough of the hybrid architecture in my Stocks project: why neither model alone was enough, and what the training curve looked like on Vertex AI.',
-      date: '2025-02-01',
-      readTime: '9 min',
-      tags: ['ML', 'Finance', 'PyTorch', 'GCP'],
-    },
-    {
-      id: 3,
-      slug: 'rust-game-networking',
-      title: 'TCP Game Networking in Rust: Lessons from Keyforge',
-      excerpt: 'Building a card game where the server is the source of truth and clients only see their own hand. Patterns, pitfalls, and why Rust made it easier.',
-      date: '2025-01-08',
-      readTime: '8 min',
-      tags: ['Rust', 'Networking', 'Games'],
-    },
-    {
-      id: 4,
-      slug: 'yolo-face-pipeline',
-      title: 'Chaining YOLOv8 and InsightFace for Human Analysis',
-      excerpt: 'How to build a two-stage CV pipeline that first finds people, then runs deep face analysis — and how to match the same face across multiple images.',
-      date: '2024-12-15',
-      readTime: '7 min',
-      tags: ['Computer Vision', 'YOLOv8', 'Python'],
-    },
-  ];
+  // To add a blog post, append an object to this array:
+  // {
+  //   id:       <unique number>,
+  //   slug:     'my-post-slug',          // used in the URL
+  //   title:    'Post title',
+  //   excerpt:  'Short summary shown in the card.',
+  //   date:     'YYYY-MM-DD',
+  //   readTime: '5 min',
+  //   tags:     ['Tag1', 'Tag2'],
+  // }
+  const posts = [];
   res.json(posts);
 });
 

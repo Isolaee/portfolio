@@ -18,6 +18,26 @@ export default function Blog({ posts }) {
           Notes on things I've built, learned, or found interesting.
         </p>
 
+        {posts.length === 0 && (
+          <div className="blog__empty">
+            <span className="blog__empty-icon">✏️</span>
+            <p className="blog__empty-title">No posts yet</p>
+            <p className="blog__empty-hint">
+              To add a post, open <code>server/src/index.js</code> and append an entry
+              to the <code>posts</code> array in the <code>/api/posts</code> handler.
+            </p>
+            <pre className="blog__empty-code">{`{
+  id:       1,
+  slug:     'my-first-post',
+  title:    'Post title',
+  excerpt:  'Short summary shown in the card.',
+  date:     'YYYY-MM-DD',
+  readTime: '5 min',
+  tags:     ['Tag1', 'Tag2'],
+}`}</pre>
+          </div>
+        )}
+
         <div className="blog__list">
           {posts.map((post, i) => (
             <article
