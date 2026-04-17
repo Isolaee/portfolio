@@ -29,6 +29,14 @@
         {
           "name": "PORTFOLIO_EMAIL",
           "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/portfolio/email"
+        },
+        {
+          "name": "SES_USER",
+          "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/portfolio/ses-user"
+        },
+        {
+          "name": "SES_PASS",
+          "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/portfolio/ses-pass"
         }
       ],
       "healthCheck": {
