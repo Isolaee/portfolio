@@ -7,7 +7,7 @@ set -e
 REGION=${1:-eu-north-1}
 ACCOUNT=${2:?Usage: deploy.sh [REGION] ACCOUNT_ID [TAG] [PROFILE]}
 TAG=${3:-latest}
-PROFILE=${4:-}
+PROFILE=${4:-personal}
 REPO="$ACCOUNT.dkr.ecr.$REGION.amazonaws.com/portfolio"
 
 # Use --profile only if one was provided; otherwise fall back to env vars
@@ -39,6 +39,7 @@ echo "==> Done! Forcing new ECS deployment..."
 aws ecs update-service \
   --cluster portfolio \
   --service portfolio \
+  --desired-count 1 \
   --force-new-deployment \
   --region "$REGION" $PROFILE_FLAG
 

@@ -41,5 +41,5 @@ output "ecs_service" {
 
 output "force_deploy_command" {
   description = "Run this after pushing a new image to deploy it"
-  value       = "aws ecs update-service --cluster ${aws_ecs_cluster.this.name} --service ${aws_ecs_service.this.name} --force-new-deployment --region ${var.region} --profile ${var.aws_profile}"
+  value       = "aws ecs update-service --cluster ${aws_ecs_cluster.this.name} --service ${aws_ecs_service.this.name} --force-new-deployment --region ${var.region}"
 }

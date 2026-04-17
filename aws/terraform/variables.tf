@@ -7,17 +7,19 @@ variable "region" {
 variable "aws_profile" {
   description = "AWS CLI profile"
   type        = string
-  default     = "eero"
+  default     = "personal"
 }
 
 variable "account_id" {
   description = "AWS account ID (12-digit number)"
   type        = string
+  default     = "018326344570"
 }
 
 variable "domain" {
   description = "Root domain name, e.g. example.com — must already have a Route 53 hosted zone"
   type        = string
+  default     = "e-isola.dev"
 }
 
 variable "container_port" {

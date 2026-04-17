@@ -38,6 +38,15 @@ aws/secrets/
 # Terraform
 aws/terraform/.terraform/
 aws/terraform/.terraform.lock.hcl
+aws/terraform/.terraform.tfstate.lock.info
 aws/terraform/terraform.tfstate
 aws/terraform/terraform.tfstate.backup
 aws/terraform/terraform.tfvars
+aws/terraform/crash.log
+aws/terraform/*.tfplan
+
+# Build artifacts
+*.tgz
+*.tar.gz
+coverage/
+.nyc_output/

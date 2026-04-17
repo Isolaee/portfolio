@@ -17,12 +17,8 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
-  # Credentials via env vars: AWS_ACCESS_KEY_ID + AWS_SECRET_ACCESS_KEY
-  # Export them before running terraform:
-  #   export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id --profile eero)
-  #   export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile eero)
-  #   export AWS_DEFAULT_REGION=eu-north-1
+  region  = var.region
+  profile = var.aws_profile
 }
 
 locals {
