@@ -3,6 +3,17 @@ const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const path = require('path');
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  host: `email-smtp.${process.env.SES_REGION || 'eu-north-1'}.amazonaws.com`,
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.SES_USER,
+    pass: process.env.SES_PASS,
+  },
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,7 +51,7 @@ app.get('/api/profile', (req, res) => {
   res.json({
     name: process.env.PORTFOLIO_NAME || 'Your Name',
     title: process.env.PORTFOLIO_TITLE || 'Software Engineer',
-    email: process.env.PORTFOLIO_EMAIL || 'you@example.com',
+    email: process.env.PORTFOLIO_EMAIL || 'eero.isola@gmail.com',
     github: process.env.PORTFOLIO_GITHUB || 'https://github.com/Isolaee',
     linkedin: process.env.PORTFOLIO_LINKEDIN || 'https://www.linkedin.com/in/eero-isola-78b8561b5/',
     bio: process.env.PORTFOLIO_BIO || 'Software developer open to work. Code is just a tool. Learn, build, repeat.',
@@ -161,15 +172,27 @@ app.get('/api/posts', (req, res) => {
   res.json(posts);
 });
 
-app.post('/api/contact', (req, res) => {
+app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'name, email, and message are required' });
   }
 
-  // In production wire up nodemailer or SES here
-  console.log(`Contact form submission from ${name} <${email}>: ${message}`);
+  const to = process.env.PORTFOLIO_EMAIL;
+  if (!to || !process.env.SES_USER || !process.env.SES_PASS) {
+    console.log(`Contact form submission from ${name} <${email}>: ${message}`);
+    return res.json({ success: true, message: 'Message received. I will be in touch soon.' });
+  }
+
+  await transporter.sendMail({
+    from: `"Portfolio Contact" <${process.env.SES_FROM || to}>`,
+    to,
+    replyTo: email,
+    subject: `Portfolio message from ${name}`,
+    text: `From: ${name} <${email}>\n\n${message}`,
+    html: `<p><strong>From:</strong> ${name} &lt;${email}&gt;</p><p>${message.replace(/\n/g, '<br>')}</p>`,
+  });
 
   res.json({ success: true, message: 'Message received. I will be in touch soon.' });
 });
