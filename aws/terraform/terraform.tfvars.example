@@ -1,0 +1,13 @@
+# Copy to terraform.tfvars and fill in your values.
+# terraform.tfvars is gitignored — never commit real values.
+
+account_id = "123456789012"
+domain     = "example.com"
+
+# Defaults — only override if needed:
+# region               = "eu-north-1"
+# aws_profile          = "eero"
+# container_port       = 3000
+# cpu                  = "256"
+# memory               = "512"
+# scale_in_idle_minutes = 10
