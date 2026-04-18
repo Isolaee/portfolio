@@ -160,20 +160,6 @@ app.get('/api/projects', (req, res) => {
       github: 'https://github.com/Isolaee/MTGSorter_V2',
       demo: null,
     },
-    {
-      id: 8,
-      title: 'DiceFight',
-      description: 'Turn-based dice combat game built with Godot and GDScript. Fast, self-contained prototype exploring game-feel and progression loop design.',
-      longDescription: [
-        'Turn-based games often sacrifice immediacy for depth, leaving combat feeling slow and mechanical. DiceFight is an experiment in proving that dice-based decisions can feel snappy and satisfying without requiring a rulebook.',
-        'Each turn, both sides roll dice; the combination of results determines attack and defence outcomes, creating genuine tactical choices within a system simple enough to grasp in thirty seconds.',
-        'The real focus was game-feel: hit feedback, roll animations, timing, and a short but meaningful progression loop. Feature breadth was deliberately kept out of scope — the goal was to validate feel, not build a full game.',
-      ],
-      tags: ['GDScript', 'Godot', 'Game'],
-      category: 'Games',
-      github: 'https://github.com/Isolaee/DiceFight',
-      demo: null,
-    },
     // Tools & Web
     {
       id: 9,
