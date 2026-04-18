@@ -11,107 +11,44 @@
 }
 
 .contact__inner {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 64px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .contact__desc {
   color: var(--text-secondary);
   font-size: 16px;
   line-height: 1.8;
-  margin-bottom: 24px;
+  margin: 0;
 }
 
-.contact__email {
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.contact__link {
   font-family: var(--font-mono);
   font-size: 15px;
   color: var(--accent);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
 
-.contact__email::before {
-  content: '→';
-  font-family: var(--font-sans);
+.contact__link:hover {
+  opacity: 0.75;
 }
 
-.contact__form {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact__field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.contact__field label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.contact__field input,
-.contact__field textarea {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  padding: 12px 14px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  resize: vertical;
-}
-
-.contact__field input::placeholder,
-.contact__field textarea::placeholder {
-  color: var(--text-muted);
-}
-
-.contact__field input:focus,
-.contact__field textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
-}
-
-.contact__submit {
-  align-self: flex-start;
-}
-
-.contact__feedback {
+.contact__link-icon {
+  font-style: normal;
   font-size: 14px;
-  padding: 10px 14px;
-  border-radius: var(--radius);
-}
-
-.contact__feedback--ok {
-  background: rgba(34, 211, 160, 0.1);
-  border: 1px solid rgba(34, 211, 160, 0.2);
-  color: var(--green);
-}
-
-.contact__feedback--err {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  color: #f87171;
-}
-
-@media (max-width: 768px) {
-  .contact__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  width: 20px;
+  text-align: center;
 }
