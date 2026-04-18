@@ -2,7 +2,7 @@ import { useRef, useState, useMemo, useEffect } from 'react';
 import useInView from '../hooks/useInView';
 import './Projects.css';
 
-const TABS = ['All', 'AI & ML', 'Games', 'Tools & Web'];
+const TABS = ['All', 'AI & ML', 'Finance & Quant', 'Games', 'WordPress', 'Tools & Web'];
 
 export default function Projects({ projects }) {
   const ref = useRef(null);
