@@ -67,14 +67,6 @@ export default function Blog({ posts }) {
 
               <div className="blog-card__body" aria-hidden={expanded !== post.id}>
                 <p className="blog-card__excerpt">{post.excerpt}</p>
-                <a
-                  href={`/blog/${post.slug}`}
-                  className="btn btn-outline blog-card__cta"
-                  onClick={(e) => e.preventDefault()}
-                  title="Coming soon"
-                >
-                  Read post <ArrowIcon />
-                </a>
               </div>
             </article>
           ))}
@@ -110,11 +102,3 @@ function ChevronIcon({ open }) {
   );
 }
 
-function ArrowIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
-  );
-}
