@@ -1,4 +1,4 @@
-import { useRef, useState, useMemo } from 'react';
+import { useRef, useState, useMemo, useEffect } from 'react';
 import useInView from '../hooks/useInView';
 import './Projects.css';
 
@@ -8,6 +8,7 @@ export default function Projects({ projects }) {
   const ref = useRef(null);
   const inView = useInView(ref);
   const [activeTab, setActiveTab] = useState('All');
+  const [selected, setSelected] = useState(null);
 
   const filtered = useMemo(
     () =>
@@ -16,6 +17,13 @@ export default function Projects({ projects }) {
         : projects.filter((p) => p.category === activeTab),
     [projects, activeTab]
   );
+
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e) => e.key === 'Escape' && setSelected(null);
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [selected]);
 
   return (
     <section id="projects" className={`projects${inView ? ' visible' : ''}`} ref={ref}>
@@ -55,10 +63,14 @@ export default function Projects({ projects }) {
               className="project-card"
               key={p.id}
               style={{ animationDelay: `${i * 0.06}s` }}
+              onClick={() => setSelected(p)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setSelected(p)}
             >
               <div className="project-card__header">
                 <FolderIcon />
-                <div className="project-card__links">
+                <div className="project-card__links" onClick={(e) => e.stopPropagation()}>
                   {p.github && (
                     <a href={p.github} target="_blank" rel="noreferrer" title="Source code">
                       <GitHubIcon />
@@ -83,6 +95,45 @@ export default function Projects({ projects }) {
           ))}
         </div>
       </div>
+
+      {selected && (
+        <div className="project-modal__backdrop" onClick={() => setSelected(null)}>
+          <div className="project-modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+            <button className="project-modal__close" onClick={() => setSelected(null)} aria-label="Close">✕</button>
+
+            <div className="project-modal__header">
+              <FolderIcon />
+              <span className="project-modal__category">{selected.category}</span>
+            </div>
+
+            <h2 className="project-modal__title">{selected.title}</h2>
+            <div className="project-modal__desc">
+              {Array.isArray(selected.longDescription)
+                ? selected.longDescription.map((para, i) => <p key={i}>{para}</p>)
+                : <p>{selected.longDescription ?? selected.description}</p>}
+            </div>
+
+            <ul className="project-card__tags project-modal__tags">
+              {selected.tags.map((t) => (
+                <li key={t} className="project-card__tag">{t}</li>
+              ))}
+            </ul>
+
+            <div className="project-modal__actions">
+              {selected.github && (
+                <a href={selected.github} target="_blank" rel="noreferrer" className="btn btn-primary">
+                  <GitHubIcon /> View on GitHub
+                </a>
+              )}
+              {selected.demo && (
+                <a href={selected.demo} target="_blank" rel="noreferrer" className="btn btn-secondary">
+                  <ExternalIcon /> Live demo
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

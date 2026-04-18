@@ -103,6 +103,18 @@ section {
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
 }
 
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--text-primary);
