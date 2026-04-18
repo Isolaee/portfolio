@@ -1,4 +1,5 @@
 import { useRef, useState, useMemo, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import useInView from '../hooks/useInView';
 import './Projects.css';
 
@@ -26,6 +27,7 @@ export default function Projects({ projects }) {
   }, [selected]);
 
   return (
+    <>
     <section id="projects" className={`projects${inView ? ' visible' : ''}`} ref={ref}>
       <div className="container">
         <p className="section-label">// projects</p>
@@ -96,7 +98,9 @@ export default function Projects({ projects }) {
         </div>
       </div>
 
-      {selected && (
+    </section>
+
+      {selected && createPortal(
         <div className="project-modal__backdrop" onClick={() => setSelected(null)}>
           <div className="project-modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
             <button className="project-modal__close" onClick={() => setSelected(null)} aria-label="Close">✕</button>
@@ -132,9 +136,10 @@ export default function Projects({ projects }) {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
-    </section>
+    </>
   );
 }
 
