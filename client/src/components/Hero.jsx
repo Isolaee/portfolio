@@ -19,6 +19,7 @@ export default function Hero({ profile }) {
         <div className="hero__actions">
           <a href="#projects" className="btn btn-primary">View my work</a>
           <a href="#contact" className="btn btn-outline">Get in touch</a>
+          <a href="/Eero_isola_CV_2026.pdf" target="_blank" rel="noreferrer" className="btn btn-outline">View CV</a>
         </div>
         <div className="hero__socials">
           {profile?.github && (
