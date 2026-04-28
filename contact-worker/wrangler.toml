@@ -1,0 +1,23 @@
+name            = "portfolio-contact"
+main            = "src/index.js"
+compatibility_date = "2024-09-23"
+
+# ------------------------------------------------------------------
+# Variables — override in the Cloudflare dashboard under
+# Workers & Pages → portfolio-contact → Settings → Variables
+# ------------------------------------------------------------------
+[vars]
+FROM_EMAIL  = "contact@e-isola.dev"   # must be a verified sender in Cloudflare Email Routing
+DEST_EMAIL  = "eero.isola@gmail.com"
+
+# ------------------------------------------------------------------
+# Email binding — allows the Worker to send email via Cloudflare
+# Email Routing. Prerequisites:
+#   1. Enable Email Routing for e-isola.dev in the Cloudflare dashboard.
+#   2. Add a "catch-all" or specific rule that routes contact@e-isola.dev
+#      → eero.isola@gmail.com.
+#   3. Verify eero.isola@gmail.com as a destination address.
+# ------------------------------------------------------------------
+[[send_email]]
+name                = "EMAIL"
+destination_address = "eero.isola@gmail.com"

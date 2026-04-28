@@ -23,8 +23,8 @@ export default function Blog({ posts }) {
             <span className="blog__empty-icon">✏️</span>
             <p className="blog__empty-title">No posts yet</p>
             <p className="blog__empty-hint">
-              To add a post, open <code>server/src/index.js</code> and append an entry
-              to the <code>posts</code> array in the <code>/api/posts</code> handler.
+              To add a post, open <code>client/src/data/posts.js</code> and append an entry
+              to the <code>posts</code> array.
             </p>
             <pre className="blog__empty-code">{`{
   id:       1,
@@ -101,4 +101,3 @@ function ChevronIcon({ open }) {
     </svg>
   );
 }
-

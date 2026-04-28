@@ -5,7 +5,7 @@ export default function Footer({ profile }) {
     <footer className="footer">
       <div className="container footer__inner">
         <p className="footer__copy">
-          &copy; {new Date().getFullYear()} {profile?.name ?? 'Your Name'}. Built with React &amp; Node.js.
+          &copy; {new Date().getFullYear()} {profile?.name ?? 'Your Name'}. Built with React &amp; Cloudflare.
         </p>
         <div className="footer__links">
           {profile?.github && (

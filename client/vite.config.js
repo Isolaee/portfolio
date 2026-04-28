@@ -5,16 +5,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    proxy: {
-      '/api': {
-        target: 'http://server:3000',
-        changeOrigin: true,
-      },
-      '/health': {
-        target: 'http://server:3000',
-        changeOrigin: true,
-      },
-    },
+    // For local dev with the contact form, run the worker separately:
+    //   cd contact-worker && npx wrangler dev
+    // Then set VITE_CONTACT_URL=http://localhost:8787 in client/.env.local
   },
   build: {
     outDir: 'dist',
