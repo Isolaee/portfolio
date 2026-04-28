@@ -50,3 +50,9 @@ aws/terraform/*.tfplan
 *.tar.gz
 coverage/
 .nyc_output/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
