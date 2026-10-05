@@ -33,7 +33,7 @@ export default function Projects({ projects }) {
         <p className="section-label">// projects</p>
         <h2 className="section-title">Things I've built</h2>
         <p className="section-subtitle">
-          A selection of projects from my{' '}
+          Selected projects from my{' '}
           <a href="https://github.com/Isolaee" target="_blank" rel="noreferrer">
             GitHub
           </a>
