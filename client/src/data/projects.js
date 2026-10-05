@@ -441,18 +441,6 @@ export const projects = [
     demo: null,
   },
   {
-    id: 34,
-    title: 'HelStock',
-    description: 'Python data pipeline and analysis tooling for Helsinki stock data.',
-    longDescription: [
-      'A Python project for collecting and analysing Helsinki Stock Exchange data, split into a data pipeline and an analysis layer, linted with ruff.',
-    ],
-    tags: ['Python', 'Data pipeline', 'Analysis'],
-    category: 'Finance & Quant',
-    github: null,
-    demo: null,
-  },
-  {
     id: 35,
     title: 'BoF Data',
     description: 'Databricks demo for exploring Finnish loan statistics from the Bank of Finland, with pipelines and jobs version-controlled as Databricks Asset Bundles.',
