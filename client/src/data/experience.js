@@ -10,7 +10,7 @@ export const experience = [
       'Led development of the platform in TypeScript, with a Bun and React stack shipped in Docker.',
       'Set up CI/CD and a test-driven workflow with automated testing.',
     ],
-    tags: ['Bun', 'React', 'TypeScript', 'Docker', 'CI/CD', 'TDD', 'Claude Code', 'Codex', 'Cursor'],
+    tags: ['Bun', 'React', 'TypeScript', 'Docker', 'CI/CD', 'TDD', 'Claude Code'],
   },
   {
     id: 2,
@@ -23,6 +23,6 @@ export const experience = [
       'Built the backend with Bun and Express and the frontend with React, all in TypeScript.',
       'Deployed on AWS with Docker, CI/CD, test-driven development and automated testing.',
     ],
-    tags: ['Bun', 'Express', 'React', 'TypeScript', 'Docker', 'AWS', 'CI/CD', 'TDD', 'Claude Code', 'Codex', 'Cursor'],
+    tags: ['Bun', 'Express', 'React', 'TypeScript', 'Docker', 'AWS', 'CI/CD', 'TDD', 'Claude Code'],
   },
 ];
