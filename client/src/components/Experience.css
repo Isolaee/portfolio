@@ -1,0 +1,54 @@
+.experience {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.experience.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experience-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.experience-card__role {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.experience-card__company {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.experience-card__summary {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.experience-card__points {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}

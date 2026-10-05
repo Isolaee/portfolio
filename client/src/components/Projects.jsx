@@ -37,7 +37,7 @@ export default function Projects({ projects }) {
           <a href="https://github.com/Isolaee" target="_blank" rel="noreferrer">
             GitHub
           </a>
-          . Source code available for everything listed.
+          . Source code is linked where the repository is public.
         </p>
 
         <div className="projects__tabs" role="tablist">
