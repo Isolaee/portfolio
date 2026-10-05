@@ -17,7 +17,7 @@ const SKILL_GROUPS = [
   },
   {
     category: 'Tools & Infra',
-    skills: ['Docker', 'PostgreSQL','SQLite', 'Redis', 'Traefik', 'GitHub Actions', 'GCP Vertex AI', 'Git'],
+    skills: ['Docker', 'PostgreSQL','SQLite', 'Redis', 'Traefik', 'GitHub Actions', 'GCP Vertex AI', 'Git', 'Claude Code', 'Codex', 'Cursor'],
   },
 ];
 
