@@ -20,9 +20,9 @@ function App() {
       <main>
         <Hero profile={profile} />
         <About profile={profile} />
+        <Experience experience={experience} />
         <Projects projects={projects} />
         <Skills />
-        <Experience experience={experience} />
         <Blog posts={posts} />
         <Contact profile={profile} />
       </main>
